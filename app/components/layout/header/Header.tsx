@@ -8,7 +8,7 @@ export interface IHeader {}
 
 const Header: FC<IHeader> = () => {
   return (
-    <header className={styles.header}>
+    <header className="w-full relative pt-6 px-6 border-b-stone-500 flex flex-wrap justify-between items-center mb-8">
       <Search />
       <IconsRight />
     </header>

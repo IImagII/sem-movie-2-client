@@ -68,6 +68,9 @@ module.exports = {
     }
   },
   plugins: [
+    {
+      name: 'typescript-plugin-css-modules'
+    },
     plugin(({ addComponents }) => {
       //addComponents - тут можно формировать сразу несколько свойств одновременно
       addComponents({

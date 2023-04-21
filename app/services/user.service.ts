@@ -1,6 +1,5 @@
-import { axiosClassic } from 'api/axios'
-
-import { IUser } from '@/types/user.interface'
+import { axiosClassic } from '../api/axios'
+import { IUser } from '../types/user.interface'
 
 export const USER = 'user'
 

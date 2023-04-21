@@ -7,7 +7,7 @@ import { menu } from './menu/menu.data'
 
 export const SideBar: FC = () => {
   return (
-    <aside className="py-5 px-7 w-1/5">
+    <aside className={styles.root}>
       <Link href="/" className="text-2xl font-semibold text-white">
         SemVideo
       </Link>
