@@ -3,7 +3,6 @@ import { GetStaticProps, NextPage } from 'next'
 
 import Home from '@/app/components/pages/home/Home'
 import { IHome } from '@/app/components/pages/home/home.interface'
-import { NextPageAuth } from '@/app/providers/private-route.interface'
 import { VideoService } from '@/app/services/video.service'
 import { IVideo } from '@/app/types/video.interface'
 

@@ -1,9 +1,25 @@
 import { FC } from 'react'
 
-export interface IDiscover {}
+import styles from './Discover.module.scss'
+import LargeVideoItem from '@/app/components/ui/video-item/LargeVideoItem'
+import { IVideo } from '@/app/types/video.interface'
 
-const Discover: FC<IDiscover> = () => {
-  return <div>Discover</div>
+export interface IDiscover {
+  topVideo: IVideo
+  randomVideo: IVideo
+}
+
+const Discover: FC<IDiscover> = ({ topVideo, randomVideo }) => {
+  return (
+    <div className={styles.discover}>
+      <div className={styles.top_video}>
+        <LargeVideoItem video={topVideo} />
+      </div>
+      <div className={styles.random_video}>
+        <LargeVideoItem video={randomVideo} />
+      </div>
+    </div>
+  )
 }
 
 export default Discover
