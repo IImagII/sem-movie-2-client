@@ -1,6 +1,5 @@
-import { axiosClassic } from 'api/axios'
-
-import { IVideo } from '@/types/video.interface'
+import { axiosClassic } from '../api/axios'
+import { IVideo } from '../types/video.interface'
 
 export const VIDEO = 'video'
 
@@ -12,6 +11,6 @@ export const VideoService = {
 
   //функция получения популярных видео
   async getMostPopular() {
-    return axiosClassic.get<IVideo>(`/${VIDEO}/most-popular`)
+    return axiosClassic.get<IVideo[]>(`/${VIDEO}/most-popular`)
   }
 }

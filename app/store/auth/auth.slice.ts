@@ -42,7 +42,7 @@ export const authSlice = createSlice({
         state.user = null
         state.accessToken = ''
       })
-      .addCase(logout.rejected, (state) => {
+      .addCase(logout.fulfilled, (state) => {
         state.isLoading = false
         state.user = null
         state.accessToken = ''

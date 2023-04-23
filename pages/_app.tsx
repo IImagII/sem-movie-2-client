@@ -6,10 +6,14 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 import '../app/styles/globals.scss'
 
+import AuthProvider from '@/app/providers/AuthProvider'
+import { TypeComponentAuthFields } from '@/app/providers/private-route.interface'
 import { persistor, store } from '@/app/store/store'
 
+type TypeAppProps = AppProps & TypeComponentAuthFields
+
 //тут делаются все обороты
-export default function App({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: TypeAppProps) {
   return (
     <>
       {/* nextjs-progressbar - это сторонняя библиотека, которая предоставляет 
@@ -23,18 +27,20 @@ export default function App({ Component, pageProps }: AppProps) {
       />
       <Provider store={store}>
         <PersistGate persistor={persistor} loading={null}>
-          <Component {...pageProps} />
-
-          {/* библиотека уведомлений */}
-          <ReduxToastredLib
-            newestOnTop={false}
-            preventDuplicates
-            progressBar
-            closeOnToastrClick
-            timeOut={4000}
-            transitionIn="fadeIn"
-            transitionOut="fadeOut"
-          />
+          {/* обернули в наш созданный провайдер AuthProvider важно чтобы он был после redux*/}
+          <AuthProvider Component={Component}>
+            <Component {...pageProps} />
+            {/* библиотека уведомлений */}
+            <ReduxToastredLib
+              newestOnTop={false}
+              preventDuplicates
+              progressBar
+              closeOnToastrClick
+              timeOut={4000}
+              transitionIn="fadeIn"
+              transitionOut="fadeOut"
+            />
+          </AuthProvider>
         </PersistGate>
       </Provider>
     </>

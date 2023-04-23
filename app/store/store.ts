@@ -12,6 +12,8 @@ import {
 //@ts-ignore
 import storage from 'redux-persist/lib/storage'
 
+import { api } from './api/api'
+import { rtkQueryErrorLogger } from './middlewares/error.middleware'
 import { rootReducer } from './root-reducer'
 
 const persistConfig = {
@@ -29,7 +31,9 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
       }
-    })
+    }) //добавляем именно наш созданный RTK Query
+      .concat(rtkQueryErrorLogger)
+      .concat(api.middleware)
 })
 
 export const persistor = persistStore(store)

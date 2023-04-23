@@ -1,5 +1,4 @@
-import { IBase } from '@/types/base.interface'
-
+import { IBase } from './base.interface'
 import { IVideo } from './video.interface'
 
 export interface IUser extends IBase {
