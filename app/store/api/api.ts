@@ -12,7 +12,7 @@ import { IUser } from '@/app/types/user.interface'
 
 export const api = createApi({
   reducerPath: 'api',
-  tagTypes: ['Video', 'Profile'],
+  tagTypes: ['Video', 'Profile'], // это типа хранилище и чтобы с этим хранилищем можно было работать
   baseQuery: fetchBaseQuery({
     baseUrl: API_URL,
     //тут указывакем что нам нужно прикреплять token при авторизации

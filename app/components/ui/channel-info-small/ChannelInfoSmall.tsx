@@ -6,6 +6,7 @@ import styles from './ChannelInfoSmall.module.scss'
 import { IUser } from '@/app/types/user.interface'
 import { formatNumberTok } from '@/app/utils/format-number-to-k'
 
+//это компонет для оотбражения того кто писал коментарий
 const ChannelInfoSmall: FC<{ channel: IUser; message?: string }> = ({
   channel,
   message

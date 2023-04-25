@@ -1,7 +1,8 @@
+import Studio from '@/app/components/pages/Studio'
 import { NextPageAuth } from '@/app/providers/private-route.interface'
 
 const StudioPage: NextPageAuth = () => {
-  return <div>studio</div>
+  return <Studio />
 }
 
 //так мы сделали защищенный роут такой записью

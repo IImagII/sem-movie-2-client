@@ -16,6 +16,9 @@ export const commentApi = api.injectEndpoints({
       }),
       /* тут мы должны обновить коментарий к конкретному видео
 	 применяем invalidatesTags но я параметрами*/
+      /**тоестьтут будет сделано при добавленни
+       * коментариев сразу запрос на
+       * обновление видео одновременно так може т RTKQuery*/
       invalidatesTags: (result, error, { videoId }) => [
         { type: 'Video', id: videoId }
       ]
