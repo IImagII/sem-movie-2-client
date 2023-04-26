@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import { IMediaResponse } from '../../../../../../../server/dist/media/media.interface'
 import { IVideoDto } from '../../../../../types/video.interface'
 
+import { IMediaResponse } from '@/app/services/media/media.interface'
 import { videoApi } from '@/app/store/api/video.api'
 
 interface IUseUploadVideoForm {
@@ -57,7 +57,36 @@ const useUploadVideoForm = ({
 
   const [isChosen, setIsChosen] = useState(false)
 
-  return
+  const [percent, setPercent] = useState(0)
+  const [isUploaded, setIsUploaded] = useState(false)
+  const setProgressPercentage = (val: number) => {
+    setPercent(val)
+    if (val === 100) setIsUploaded(true)
+  }
+
+  return {
+    form: {
+      register,
+      errors,
+      control,
+      handleSubmit,
+      onSubmit
+    },
+    media: {
+      videoPath,
+      thumbnailPath,
+      videoFileName,
+      handleUploadVideo
+    },
+    status: {
+      isSuccess,
+      isChosen,
+      setIsChosen,
+      percent,
+      isUploaded,
+      setProgressPercentage
+    }
+  }
 }
 
 export default useUploadVideoForm

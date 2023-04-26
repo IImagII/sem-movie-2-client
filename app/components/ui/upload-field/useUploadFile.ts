@@ -1,8 +1,6 @@
 import { ChangeEvent, Dispatch, SetStateAction } from 'react'
 import { useMutation } from 'react-query'
 
-import { errorCatch } from '../../../utils/api.utils'
-
 import { MediaService } from '@/app/services/media/media.service'
 
 export const useUploadFile = (
@@ -11,6 +9,7 @@ export const useUploadFile = (
   setValue?: (val: number) => void,
   setIsChosen?: Dispatch<SetStateAction<boolean>>
 ) => {
+  //не забыть подключить react-query
   const { mutateAsync } = useMutation(
     'upload file',
     (data: FormData) => MediaService.upload(data, folder, setValue),
@@ -19,7 +18,7 @@ export const useUploadFile = (
         onChange(data)
       },
       onError: (error: any) => {
-        alert(errorCatch(error))
+        alert(`Ошибка при загрузке файла: ${error.message}`)
       }
     }
   )

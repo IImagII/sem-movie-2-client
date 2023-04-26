@@ -4,7 +4,12 @@ import { FC } from 'react'
 
 import styles from './TogglePublic.module.scss'
 
-const TogglePublic: FC = ({ isEnable, clickHandler }) => {
+interface TogglePublicProps {
+  clickHandler: () => void
+  isEnable: boolean
+}
+
+const TogglePublic: FC<TogglePublicProps> = ({ isEnable, clickHandler }) => {
   return (
     <div className={styles.wrapper}>
       <Switch

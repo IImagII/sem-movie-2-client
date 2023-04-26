@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 
+import styles from './TextArea.module.scss'
 import { ITextArea } from './text-area.interface'
-import styles from '@/ui/TextArea/TextArea.module.scss'
 
 const TextArea = forwardRef<HTMLTextAreaElement, ITextArea>(
   ({ error, style, ...rest }, ref) => {
